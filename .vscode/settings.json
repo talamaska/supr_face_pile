@@ -1,0 +1,77 @@
+{
+  "typescript.suggest.paths": false,
+  "search.exclude": {
+    "**/.dart-tool": true,
+    "**/.fvm": true,
+    "**/.idea": true,
+    "**/*.g.dart": true,
+    "**/*.inject.dart": true,
+    "**/*.inject.summary": true,
+    "**/*.moor.dart": true,
+    "**/*.drift.dart": true,
+    "**/ios": true,
+    "**/build": true
+  },
+  "workbench.editor.closeOnFileDelete": true,
+  "cSpell.ignorePaths": [
+    "**/package-lock.json",
+    "**/node_modules/**",
+    "**/vscode-extension/**",
+    "**/.git/objects/**",
+    ".vscode",
+    ".vscode-insiders",
+    "pubspec.yaml",
+    "analysis_options.yaml",
+    "/changelog/**",
+    "/assets/**",
+    "CHANGELOG.md"
+  ],
+  "dart.debugSdkLibraries": true,
+  "dart.openDevTools": "flutter",
+  "dart.useLsp": true,
+  "dart.showInspectorNotificationsForWidgetErrors": false,
+  "dart.doNotFormat": [
+    "**/*.g.dart",
+    "**/*.drift.dart"
+  ],
+  "dart.flutterHotReloadOnSave": "always",
+  "[dart]": {
+    "editor.formatOnSave": true,
+    "editor.formatOnType": true,
+    "editor.rulers": [
+      80
+    ],
+    "editor.selectionHighlight": false,
+    "editor.suggest.snippetsPreventQuickSuggestions": false,
+    "editor.suggestSelection": "first",
+    "editor.tabCompletion": "onlySnippets",
+    "editor.wordBasedSuggestions": false
+  },
+  "dart.analyzeAngularTemplates": false,
+  "files.watcherExclude": {
+    ".dart_tool": true,
+    "build": true
+  },
+  "cSpell.enableFiletypes": [
+    "!asciidoc",
+    "!csharp",
+    "!git-commit",
+    "!go",
+    "!graphql",
+    "!handlebars",
+    "!haskell",
+    "!jade",
+    "!javascriptreact",
+    "!jupyter",
+    "!less",
+    "!php",
+    "!pug",
+    "!python",
+    "!rust",
+    "!scala",
+    "!swift",
+    "!typescriptreact",
+    "!vue"
+  ],
+  "workbench.colorTheme": "Material Theme Darker High Contrast",
+}

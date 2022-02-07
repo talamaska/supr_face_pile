@@ -1,0 +1,23 @@
+include: package:flutter_lints/flutter.yaml
+
+analyzer:
+  strong-mode:
+    implicit-casts: false
+    implicit-dynamic: false
+  errors:
+    missing_required_param: warning
+    missing_return: warning
+    todo: ignore
+    deprecated_member_use_from_same_package: ignore
+    sdk_version_async_exported_from_core: ignore
+  exclude:
+    - "bin/cache/**"
+    - "lib/l10n/app_localizations.dart"
+    - "lib/l10n/app_localizations_*.dart"
+    - "lib/mobx/*.g.dart"
+    - "lib/db/*.drift.dart"
+
+linter:
+  rules:
+    always_declare_return_types: true
+    always_specify_types: true

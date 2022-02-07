@@ -1,0 +1,287 @@
+{
+  // See https://go.microsoft.com/fwlink/?LinkId=733558
+  // for the documentation about the tasks.json format
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "fvm_translations",
+      "type": "shell",
+      "command": "fvm",
+      "args": [
+        "flutter",
+        "gen-l10n",
+        "--arb-dir",
+        "l10n/arb",
+        "--template-arb-file",
+        "intl_en.arb",
+        "--output-localization-file",
+        "app_localizations.dart",
+        "--output-dir",
+        "lib/l10n",
+        "--no-synthetic-package",
+        "--untranslated-messages-file",
+        "untranslated.json"
+      ],
+      "problemMatcher": "$dart-build_runner",
+      "presentation": {
+        "echo": true,
+        "reveal": "always",
+        "focus": true,
+        "panel": "new",
+        "showReuseMessage": true,
+        "clear": true
+      },
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      }
+    },
+    {
+      "label": "to arb",
+      "type": "shell",
+      "command": "fvm flutter pub pub run intl_translation:extract_to_arb --output-dir=assets/l10n/arb lib/l10n/string_resources.dart",
+      "presentation": {
+        "echo": true,
+        "reveal": "always",
+        "focus": true,
+        "panel": "new",
+        "showReuseMessage": true,
+        "clear": true
+      },
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      }
+    },
+    {
+      "label": "from arb",
+      "type": "shell",
+      "command": "fvm flutter pub pub run intl_translation:generate_from_arb --output-dir=lib/l10n/dart/ --no-use-deferred-loading lib/l10n/string_resources.dart assets/l10n/arb/intl_bg.arb assets/l10n/arb/intl_en.arb assets/l10n/arb/intl_es.arb assets/l10n/arb/intl_fr.arb assets/l10n/arb/intl_ru.arb",
+      "presentation": {
+        "echo": true,
+        "reveal": "always",
+        "focus": true,
+        "panel": "new",
+        "showReuseMessage": true,
+        "clear": true
+      },
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      }
+    },
+    {
+      "label": "fvm_build_runner",
+      "type": "shell",
+      "command": "fvm flutter packages pub run build_runner build --delete-conflicting-outputs",
+      "presentation": {
+        "echo": true,
+        "reveal": "always",
+        "focus": true,
+        "panel": "new",
+        "showReuseMessage": true,
+        "clear": true
+      },
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      }
+    },
+    {
+      "label": "fvm_change_app_package_name",
+      "type": "shell",
+      "command": "fvm flutter pub run change_app_package_name:main com.blazing.box.blunt_counter",
+      "presentation": {
+        "echo": true,
+        "reveal": "always",
+        "focus": true,
+        "panel": "new",
+        "showReuseMessage": true,
+        "clear": true
+      },
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      }
+    },
+    {
+      "label": "fvm_flutter_app_name",
+      "type": "shell",
+      "command": "fvm flutter pub run flutter_app_name",
+      "presentation": {
+        "echo": true,
+        "reveal": "always",
+        "focus": true,
+        "panel": "new",
+        "showReuseMessage": true,
+        "clear": true
+      },
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      }
+    },
+    {
+      "label": "fvm_build_runner watch",
+      "type": "shell",
+      "command": "fvm flutter packages pub run build_runner watch --delete-conflicting-outputs",
+      "presentation": {
+        "echo": true,
+        "reveal": "always",
+        "focus": true,
+        "panel": "new",
+        "showReuseMessage": true,
+        "clear": true
+      }
+    },
+    {
+      "label": "fvm_generate_icons",
+      "type": "shell",
+      "command": "fvm flutter pub run flutter_launcher_icons:main",
+      "presentation": {
+        "echo": true,
+        "reveal": "always",
+        "focus": true,
+        "panel": "new",
+        "showReuseMessage": true,
+        "clear": true
+      }
+    },
+    {
+      "label": "fvm_generate_splash",
+      "type": "shell",
+      "command": "fvm flutter pub pub run flutter_native_splash:create",
+      "presentation": {
+        "echo": true,
+        "reveal": "always",
+        "focus": true,
+        "panel": "new",
+        "showReuseMessage": true,
+        "clear": true
+      }
+    },
+    {
+      "label": "translations",
+      "type": "shell",
+      "command": "fvm",
+      "args": [
+        "flutter",
+        "gen-l10n",
+        "--arb-dir",
+        "l10n/arb",
+        "--template-arb-file",
+        "intl_en.arb",
+        "--output-localization-file",
+        "app_localizations.dart",
+        "--output-dir",
+        "lib/l10n",
+        "--no-synthetic-package",
+        "--untranslated-messages-file",
+        "untranslated.json"
+      ],
+      "problemMatcher": "$dart-build_runner",
+      "presentation": {
+        "echo": true,
+        "reveal": "always",
+        "focus": true,
+        "panel": "new",
+        "showReuseMessage": true,
+        "clear": true
+      },
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      }
+    },
+    {
+      "label": "build_runner",
+      "type": "shell",
+      "command": "flutter packages pub run build_runner build --delete-conflicting-outputs",
+      "presentation": {
+        "echo": true,
+        "reveal": "always",
+        "focus": true,
+        "panel": "new",
+        "showReuseMessage": true,
+        "clear": true
+      },
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      }
+    },
+    {
+      "label": "change_app_package_name",
+      "type": "shell",
+      "command": "flutter pub run change_app_package_name:main com.blazing.box.blunt_counter",
+      "presentation": {
+        "echo": true,
+        "reveal": "always",
+        "focus": true,
+        "panel": "new",
+        "showReuseMessage": true,
+        "clear": true
+      },
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      }
+    },
+    {
+      "label": "change_app_name",
+      "type": "shell",
+      "command": "flutter pub run flutter_app_name",
+      "presentation": {
+        "echo": true,
+        "reveal": "always",
+        "focus": true,
+        "panel": "new",
+        "showReuseMessage": true,
+        "clear": true
+      },
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      }
+    },
+    {
+      "label": "build_runner watch",
+      "type": "shell",
+      "command": "flutter packages pub run build_runner watch --delete-conflicting-outputs",
+      "presentation": {
+        "echo": true,
+        "reveal": "always",
+        "focus": true,
+        "panel": "new",
+        "showReuseMessage": true,
+        "clear": true
+      }
+    },
+    {
+      "label": "generate_icons",
+      "type": "shell",
+      "command": "flutter pub run flutter_launcher_icons:main",
+      "presentation": {
+        "echo": true,
+        "reveal": "always",
+        "focus": true,
+        "panel": "new",
+        "showReuseMessage": true,
+        "clear": true
+      }
+    },
+    {
+      "label": "generate_splash",
+      "type": "shell",
+      "command": "flutter pub pub run flutter_native_splash:create",
+      "presentation": {
+        "echo": true,
+        "reveal": "always",
+        "focus": true,
+        "panel": "new",
+        "showReuseMessage": true,
+        "clear": true
+      }
+    }
+  ]
+}
