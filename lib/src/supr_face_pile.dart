@@ -26,7 +26,7 @@ class _SuprFacePileState extends State<SuprFacePile> {
   void initState() {
     super.initState();
 
-    WidgetsBinding.instance!.addPostFrameCallback((Duration timeStamp) {
+    WidgetsBinding.instance.addPostFrameCallback((Duration timeStamp) {
       _syncUsersWithPile();
     });
   }
@@ -35,7 +35,7 @@ class _SuprFacePileState extends State<SuprFacePile> {
   void didUpdateWidget(SuprFacePile oldWidget) {
     super.didUpdateWidget(oldWidget);
 
-    WidgetsBinding.instance!.addPostFrameCallback((Duration timeStamp) {
+    WidgetsBinding.instance.addPostFrameCallback((Duration timeStamp) {
       _syncUsersWithPile();
     });
   }

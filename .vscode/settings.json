@@ -34,7 +34,7 @@
     "**/*.g.dart",
     "**/*.drift.dart"
   ],
-  "dart.flutterHotReloadOnSave": "always",
+  "dart.flutterHotReloadOnSave": "allIfDirty",
   "[dart]": {
     "editor.formatOnSave": true,
     "editor.formatOnType": true,
@@ -74,4 +74,7 @@
     "!vue"
   ],
   "workbench.colorTheme": "Material Theme Darker High Contrast",
+  "cSpell.words": [
+    "Supr"
+  ],
 }

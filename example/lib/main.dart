@@ -86,18 +86,31 @@ class _SuprFacePileDemoPageState extends State<SuprFacePileDemoPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: DecoratedBox(
-          decoration: BoxDecoration(border: Border.all()),
-          child: ConstrainedBox(
-            constraints: const BoxConstraints(maxWidth: 200),
-            child: SuprFacePile(
-              users: _facePileUsers,
-              facePercentOverlap: 0.1,
-            ),
-          ),
-        ),
-      ),
+      // body: Center(
+      //   child: DecoratedBox(
+      //     decoration: BoxDecoration(border: Border.all()),
+      //     child: ConstrainedBox(
+      //       constraints: const BoxConstraints(maxWidth: 200),
+      //       child: SuprFacePile(
+      //         users: _facePileUsers,
+      //         facePercentOverlap: 0.1,
+      //       ),
+      //     ),
+      //   ),
+      // ),
+      body: FutureBuilder<bool>(
+          future: Future<bool>.value(true),
+          builder: (BuildContext context, AsyncSnapshot<bool> snapshot) {
+            return FutureBuilderResponse<bool>(
+              dataSnapshot: snapshot,
+              builder:
+                  (BuildContext context, AsyncSnapshot<bool> dataSnapshot) {
+                return Center(
+                  child: Text('data is ${dataSnapshot.data.toString()}'),
+                );
+              },
+            );
+          }),
       floatingActionButton: Row(
         mainAxisSize: MainAxisSize.min,
         children: [
@@ -112,5 +125,36 @@ class _SuprFacePileDemoPageState extends State<SuprFacePileDemoPage> {
         ],
       ),
     );
+  }
+}
+
+typedef FutureBuilderResponseBuilder<T> = Widget Function(
+    BuildContext context, AsyncSnapshot<T> dataSnapshot);
+
+class FutureBuilderResponse<T> extends StatelessWidget {
+  final AsyncSnapshot<T> dataSnapshot;
+  final FutureBuilderResponseBuilder<T> builder;
+
+  const FutureBuilderResponse({
+    Key? key,
+    required this.dataSnapshot,
+    required this.builder,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    if (dataSnapshot.connectionState == ConnectionState.waiting) {
+      return const Center(child: CircularProgressIndicator());
+    } else {
+      if (dataSnapshot.error != null) {
+        // ...
+        // Do error handling stuff
+        return const Center(
+          child: Text('An error occurred!'),
+        );
+      } else {
+        return builder(context, dataSnapshot);
+      }
+    }
   }
 }
